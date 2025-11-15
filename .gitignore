@@ -1,0 +1,47 @@
+# ==== PYTHON ====
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==== ENV ====
+.env
+venv/
+.venv/
+
+# ==== DJANGO ====
+# banco de dados SQLite (somente local)
+db.sqlite3
+
+# arquivos de mídia (uploads)
+media/
+
+# collectstatic
+staticfiles/
+static/
+
+# ==== MIGRATIONS ====
+# (descomente se NÃO quiser versionar migrações)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# ==== LOGS ====
+*.log
+*.pot
+*.pyc
+
+# ==== TESTS ====
+.coverage
+htmlcov/
+.cache/
+
+# ==== OS FILES ====
+.DS_Store
+Thumbs.db
+
+# ==== IDE / EDITOR ====
+.vscode/
+.idea/
+*.swp
+
+# ==== WSL / UBUNTU ====
+*.pid

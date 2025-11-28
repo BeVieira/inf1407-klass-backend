@@ -1,5 +1,5 @@
 {
-  "version": "now-php@1.0.0",
+  "version": 2,
   "functions": {
     "klass_backend/api/index.py": {
       "runtime": "@vercel/python@4.3.0",

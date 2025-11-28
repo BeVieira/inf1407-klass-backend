@@ -1,17 +1,11 @@
 {
   "functions": {
-    "api/index.py": {
+    "klass_backend/api/index.py": {
       "runtime": "python3.11",
       "maxDuration": 10,
       "memory": 1024
     }
   },
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
   "routes": [
     {
       "src": "/static/(.*)",

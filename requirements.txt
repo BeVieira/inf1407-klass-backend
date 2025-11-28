@@ -3,3 +3,6 @@ djangorestframework
 drf-spectacular
 django-cors-headers
 python-dotenv
+djangorestframework-simplejwt
+dj-database-url
+psycopg2-binary

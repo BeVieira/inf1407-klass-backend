@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
       'id',
       'username',
       'email',
+      'password',
       'registration',
       'role',
     ]

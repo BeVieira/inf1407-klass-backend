@@ -15,6 +15,13 @@ Defina as variáveis no `.env` (ou variáveis do sistema) antes de iniciar:
 - `CSRF_TRUSTED_ORIGINS`: domínios confiáveis para CSRF.
 - `SESSION_COOKIE_SECURE` e `CSRF_COOKIE_SECURE`: `true` para cookies apenas via HTTPS.
 - `JWT_ACCESS_MINUTES` e `JWT_REFRESH_DAYS`: ajustes de tempo de vida dos tokens.
+- `EMAIL_BACKEND`: Backend de email (ex: `django.core.mail.backends.smtp.EmailBackend`).
+- `EMAIL_HOST`: Servidor SMTP (ex: `smtp.resend.com`).
+- `EMAIL_PORT`: Porta SMTP (ex: `587`).
+- `EMAIL_USE_TLS`: `true` para usar TLS.
+- `EMAIL_HOST_USER`: Usuário SMTP.
+- `EMAIL_HOST_PASSWORD`: Senha SMTP.
+- `DEFAULT_FROM_EMAIL`: Remetente padrão (ex: `Klass <noreply@klass.social>`).
 
 ## Setup local
 1. Crie o ambiente virtual e instale as dependências:

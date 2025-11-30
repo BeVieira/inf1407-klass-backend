@@ -94,3 +94,10 @@ class PasswordResetConfirmView(generics.GenericAPIView):
     serializer.is_valid(raise_exception=True)
     serializer.save()
     return Response({"detail": "Senha redefinida com sucesso."}, status=status.HTTP_200_OK)
+  
+class AuthMeView(views.APIView):
+  permission_classes = [IsAuthenticated]
+
+  def get(self, request):
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data, status=status.HTTP_200_OK)

@@ -65,7 +65,7 @@ class PasswordResetRequestView(views.APIView):
     
     # URL do Frontend (Placeholder por enquanto, ajustável via ENV ou hardcoded)
     # Ex: http://localhost:3000/reset-password/uid/token
-    frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:3000')
+    frontend_url = getattr(settings, 'FRONTEND_URL', 'https://www.klass.social/')
     reset_link = f"{frontend_url}/reset-password/{uid}/{token}"
 
     html_message = render_to_string('emails/password_reset.html', {'reset_link': reset_link})

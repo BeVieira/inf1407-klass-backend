@@ -15,6 +15,27 @@ class UserSerializer(serializers.ModelSerializer):
     read_only_fields = [
       'role',
     ]
+    extra_kwargs = {
+      'password': {'write_only': True},
+    }
+
+  def create(self, validated_data):
+    password = validated_data.pop('password', None)
+    user = User(**validated_data)
+    if password:
+      user.set_password(password)
+    else:
+      user.set_unusable_password()
+    user.save()
+    return user
+
+  def update(self, instance, validated_data):
+    password = validated_data.pop('password', None)
+    user = super().update(instance, validated_data)
+    if password:
+      user.set_password(password)
+      user.save(update_fields=['password'])
+    return user
 
   def validate_registration(self, value):
     if not value.isdigit():

@@ -33,8 +33,17 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class SectionSerializer(serializers.ModelSerializer):
   course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())
+  occupied_vacancies = serializers.IntegerField(read_only=True)
 
   class Meta:
     model = Section
-    fields = ["id", "course", "days", "schedule", "vacancies", "created_at"]
-    read_only_fields = ["id", "created_at"]
+    fields = [
+      "id",
+      "course",
+      "days",
+      "schedule",
+      "vacancies",
+      "occupied_vacancies",
+      "created_at",
+    ]
+    read_only_fields = ["id", "occupied_vacancies", "created_at"]

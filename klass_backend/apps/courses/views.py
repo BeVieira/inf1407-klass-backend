@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import viewsets
@@ -49,7 +50,11 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 
 class SectionViewSet(viewsets.ModelViewSet):
-  queryset = Section.objects.select_related("course", "course__owner").all().order_by("-created_at")
+  queryset = (
+    Section.objects.select_related("course", "course__owner")
+    .annotate(occupied_vacancies=Count("enrollments"))
+    .order_by("-created_at")
+  )
   serializer_class = SectionSerializer
   permission_classes = [IsAuthenticated]
 

@@ -25,3 +25,13 @@ class Section(models.Model):
 
   def __str__(self):
     return f"{self.course.name} - {self.days} {self.schedule}"
+
+  @property
+  def occupied_vacancies(self):
+    if hasattr(self, "_occupied_vacancies_cache"):
+      return self._occupied_vacancies_cache
+    return self.enrollments.count()
+
+  @occupied_vacancies.setter
+  def occupied_vacancies(self, value):
+    self._occupied_vacancies_cache = value
